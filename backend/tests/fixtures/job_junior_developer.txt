@@ -1,0 +1,20 @@
+Job title: Junior Software Developer
+
+Requirements:
+- Bachelor's degree in Computer Science or related field.
+- Knowledge of Java and Python.
+- Experience with React.
+- Understanding of REST APIs.
+- PostgreSQL database knowledge.
+- Git and GitHub.
+- Problem-solving skills.
+- Knowledge of software testing.
+- Understanding of Agile development.
+
+Nice to have:
+- Docker and AWS experience is a plus.
+
+Responsibilities:
+- Build and maintain web application features.
+- Write unit tests for new code.
+- Collaborate with the team in sprint planning.

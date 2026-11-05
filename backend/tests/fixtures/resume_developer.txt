@@ -1,0 +1,28 @@
+Alex Morgan
+alex.morgan@example.com | (555) 201-3344 | linkedin.com/in/alexmorgan
+
+Professional Summary
+Computer Science graduate who builds mobile and backend applications. Comfortable with Java, Python and relational databases, and enjoys solving problems in small teams.
+
+Skills
+Java, Python, Flutter, Dart, PostgreSQL, GitHub, Problem solving, Team collaboration
+
+Experience
+Software Developer Intern, Brightlane Apps | Jun 2023 - Dec 2023
+- Developed RESTful services using Spring Boot for a booking platform used by 3 partner clinics.
+- Created mobile applications using Flutter with offline sync.
+- Wrote SQL queries and maintained PostgreSQL schemas.
+- Resolved technical problems for customers reported through the support inbox.
+
+IT Help Desk Assistant, Riverside College | Sep 2021 - May 2023
+- Answered 40+ support tickets per week and documented fixes for the team.
+
+Projects
+Campus Events App
+- Built a cross-platform mobile app in Flutter and Dart with a Python backend.
+
+Education
+Bachelor of Science in Computer Science, Riverside College, 2023
+
+Interests
+Currently learning Docker and AWS.

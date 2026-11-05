@@ -1,0 +1,13 @@
+[project]
+name = "resumeiq-backend"
+version = "0.1.0"
+description = "Explainable resume and job-description matching engine and API"
+requires-python = ">=3.12"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"

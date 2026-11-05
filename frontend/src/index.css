@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+/* Semantic colour tokens. Base palette from the spec: navy #111827, indigo #4F46E5,
+   background #F8FAFC, success #16A34A. */
+@theme {
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --color-page: #f8fafc;
+  --color-surface: #ffffff;
+  --color-sunken: #f1f5f9;
+  --color-ink: #111827;
+  --color-muted: #526070;
+  --color-line: #dfe5ec;
+  --color-brand: #4f46e5;
+  --color-brand-soft: #eef0ff;
+  --color-good: #16a34a;
+  --color-good-soft: #eaf7ee;
+  --color-warn: #b45309;
+  --color-warn-soft: #fdf3e4;
+  --color-bad: #c0262d;
+  --color-bad-soft: #fdeced;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-page: #0e1320;
+    --color-surface: #161d2d;
+    --color-sunken: #1c2436;
+    --color-ink: #e8ecf3;
+    --color-muted: #9aa6b8;
+    --color-line: #2a3449;
+    --color-brand: #8b85ff;
+    --color-brand-soft: #23264a;
+    --color-good: #4ade80;
+    --color-good-soft: #15301f;
+    --color-warn: #f0a94a;
+    --color-warn-soft: #3a2a12;
+    --color-bad: #f8787d;
+    --color-bad-soft: #3d1a1d;
+  }
+}
+
+html {
+  color-scheme: light dark;
+}
+
+body {
+  background: var(--color-page);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-feature-settings: "tnum" 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}

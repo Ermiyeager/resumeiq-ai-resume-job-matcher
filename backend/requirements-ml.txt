@@ -1,0 +1,4 @@
+# Optional: meaning-based matching with all-MiniLM-L6-v2 (~90 MB model download on first run).
+# Without it, ResumeIQ falls back to TF-IDF similarity.
+-r requirements.txt
+sentence-transformers==3.3.1

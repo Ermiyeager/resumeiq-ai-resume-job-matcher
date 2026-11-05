@@ -1,0 +1,64 @@
+x-backend-env: &backend-env
+  DATABASE_URL: postgresql+psycopg://resumeiq:resumeiq@db:5432/resumeiq
+  CELERY_BROKER_URL: redis://redis:6379/0
+  RESUMEIQ_TASK_MODE: celery
+  RESUMEIQ_STORAGE_DIR: /data/storage
+  RESUMEIQ_APP_URL: http://localhost:8080
+  RESUMEIQ_CORS_ORIGINS: http://localhost:8080
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: resumeiq
+      POSTGRES_PASSWORD: resumeiq   # change for anything beyond local use
+      POSTGRES_DB: resumeiq
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U resumeiq"]
+      interval: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+
+  backend:
+    build:
+      context: ./backend
+      args:
+        INSTALL_ML: "0"   # set to "1" for sentence-transformers semantic matching
+    environment: *backend-env
+    volumes:
+      - uploads:/data/storage
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    ports:
+      - "8000:8000"
+
+  worker:
+    build:
+      context: ./backend
+      args:
+        INSTALL_ML: "0"
+    command: celery -A app.celery_app worker --loglevel=info --concurrency=2
+    environment: *backend-env
+    volumes:
+      - uploads:/data/storage
+    depends_on:
+      - backend
+      - redis
+
+  frontend:
+    build: ./frontend
+    depends_on:
+      - backend
+    ports:
+      - "8080:80"
+
+volumes:
+  pgdata:
+  uploads:
